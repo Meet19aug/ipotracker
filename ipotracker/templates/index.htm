@@ -1,0 +1,112 @@
+{% extends 'base.htm' %}
+{% block content %}
+<section id="about">
+    <div class="about-wrapper container">
+        <div class="about-img">
+            <img src="{{'static/img/logo-daksh.png'}}" alt="About US">
+        </div>
+        <div class="about-text">
+            <h1 class="main-title" style="margin:2rem 0;">Apply for IPO Online.</h1>
+            <p>Apply online and invest in companies listing on the Indian exchanges with an IPO (Initial Public
+                Offering) using mobile UPI with your Ipo-Tracker account.</p>
+            <a href="#ipo" class="btn btn-primary" style="margin:2rem 0;">Apply For An IPO</a>
+            <p>Don't have a Ipo-Tracker account?<a href="#"
+                    onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</a>
+            </p>
+        </div>
+    </div>
+</section>
+<section id="ipo">
+    <h2>Apply IPO</h2>
+    <div class="ipo-container container">
+        {% for curIpo in curIpos %}
+        {% if curIpo.upcomming %}
+        <div class="ipo-type">
+            <div class="img-container">
+                <img src="{{curIpo.img.url}}" alt="ipo-company-img">
+                <div class="img-content">
+                    <h3>{{curIpo.name}}</h3>
+                    {% if curIpo.available %}
+                    <a href="./form.htm" class="btn btn-primary" target="_blank">Apply for IPO</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</section>
+<section id="ipo" class="mini-container">
+    <h2 class="lg-heading" style="margin-top: 4rem;">Upcoming IPOs</h2>
+    <div class="table-container current-ipo">
+        <table>
+            <thead>
+                <tr>
+                    <th>Stock</th>
+                    <th>Date</th>
+                    <th class="text-center">Price range</th>
+                    <th class="text-center">Min. qty.</th>
+                    <th title="Red Herring Prospectus">(D)RHP</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for curIpo in curIpos%}
+                {% if curIpo.upcomming %}
+                <tr>
+                    <td class="name">
+                        <a href="./form.htm" target="_blank">{{curIpo.name}} </a>
+                    </td>
+                    <td class="date">
+                        {{curIpo.datel}} - {{curIpo.dateu}}
+                    </td>
+                    <td class="text-center">
+                        {{curIpo.pricel}} – {{curIpo.priceu}}
+                    </td>
+                    <td class="text-center">
+                        {{curIpo.quantitymin}}
+                    </td>
+                    <td title="Red Herring Prospectus">
+                        <a href="{{curIpo.rhp}}" target="_blank">View</a>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <h2 class="lg-heading">Closed IPOs</h2>
+    <div class="table-container closed-ipo">
+        <table>
+            <thead>
+                <tr>
+                    <th>Stock</th>
+                    <th>Date</th>
+                    <th class="text-center">Price range</th>
+                    <th class="text-center">Min. qty.</th>
+                    <th title="Red Herring Prospectus">(D)RHP</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for curIpo in curIpos%}
+                {% if not curIpo.upcomming %}
+                <tr class="closed">
+                    <td class="name">
+                        <a href="{{curIpo.rhp}}">{{curIpo.name}} </a>
+                    </td>
+                    <td class="date">
+                        {{curIpo.datel}} – {{curIpo.dateu}} </td>
+                    <td class="text-center">
+                        {{curIpo.pricel}} – {{curIpo.priceu}} </td>
+                    <td class="text-center">
+                        {{curIpo.quantitymin}} </td>
+                    <td title="Red Herring Prospectus">
+                        <a href="{{curIpo.rhp}}" target="_blank">View</a>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}

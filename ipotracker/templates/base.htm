@@ -1,0 +1,201 @@
+{% load static %}
+{% static "img" as baseUrl %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'img/logo-daksh.png' %}" type="image/icon type">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+    <script type="text/javascript" src="{% static 'js/form.js' %}"></script>
+    <title>IPO-TRACKER</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-container container">
+            <input type="checkbox">
+            <div class="hemburger-lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+            </div>
+            <ul class="menu-items">
+                {% if user.is_authenticated %}
+                <li>Hello {{user.first_name}}</li>
+                {% endif %}
+                <li><a href="./index.htm">Home</a></li>
+                <li><a href="./about.htm">About</a></li>
+                <li><a href="./product.htm">Product</a></li>
+                <li><a href="./contact.htm">Contact</a></li>
+                <li><a href="./career.htm">Career</a></li>
+
+                {% if not user.is_authenticated %}
+                <li><a href="#" onclick="document.getElementById('id01').style.display='block'"
+                        style="width:auto;">Register</a></li>
+                <li><a href="#" onclick="document.getElementById('id02').style.display='block'"
+                        style="width:auto;">Login</a></li>
+                {% endif %}
+                {% if user.is_authenticated %}
+                <li><a href="accounts/logout">Logout</a></li>
+                {% endif %}
+            </ul>
+
+            <a href="./index.htm">
+                <h1 class="logo">IPO-TRACKER</h1>
+            </a>
+        </div>
+    </nav>
+    <!-- login -->
+    <div id="id02" class="modal">
+        <div class="login-form">
+            <form method="POST" action="accounts/login">
+                {% csrf_token %}
+                <div class="imgcontainer">
+                    <img src="{{'static/img/logo-daksh.png'}}" alt="Avatar" class="avatar">
+                </div>
+                <div>
+                    <label for="username">
+                        <h2>Username</h2>
+                    </label><br>
+                    <input type="text" id="username" aria-describedby="emailHelp" name="username">
+                    <br>
+                    <small id="emailHelp" class="sm-heading">We'll never share your email with anyone
+                        else.</small>
+                </div><br>
+                <div>
+                    <label for="password">
+                        <h2>Password</h2>
+                    </label><br>
+                    <input type="password" id="password" name="password">
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary" onclick="login()">Login</button>
+                </div>
+            </form>
+            <div>
+                <button type="btn" class="btn btn-primary"
+                    onclick="document.getElementById('id02').style.display='none';">Cancel</button>
+                <p class="sm-heading">Don't have a Ipo-Tracker account?<a href="#"
+                        onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</a>
+                </p>
+            </div>
+            <div>
+                {% for message in messages %}
+                {% if 'login' in message.tags %}
+                    <script>
+                        document.getElementById('id02').style.display='block';
+                    </script>
+                <h2>{{message}}</h2>
+                {% endif %}
+                
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- sign up-->
+    <div id="id01" class="modal">
+        <div class="login-form">
+            <form method="POST" action="accounts/register">
+                {% csrf_token %}
+                <div class="imgcontainer">
+                    <img src="{{'static/img/logo-daksh.png'}}" alt="Avatar" class="avatar">
+                </div>
+                <div class="form-group">
+                    <label for="fname">
+                        <h2>First Name</h2>
+                    </label><br>
+                    <input type='text' name='first_name' id="fname"><Br>
+                    <label for="lname">
+                        <h2>Last Name</h2>
+                    </label><br>
+                    <input type='text' name='last_name' id="lname"><Br>
+                    <label for="username">
+                        <h2>Username</h2>
+                    </label><br>
+
+                    <input type='text' name='username' id="username"><Br>
+                    <label for="exampleInputEmail1">
+                        <h2>Email Address</h2>
+                    </label><br>
+                    <input type="email" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
+                    <br>
+                    <small id="emailHelp" class="sm-heading">We'll never share your email with anyone
+                        else.</small>
+                </div><br>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">
+                        <h2>Password</h2>
+                    </label><br>
+                    <input type="password" id="exampleInputPassword1" name="password1">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword2">
+                        <h2>Confirm Password</h2>
+                    </label><br>
+                    <input type="password" id="exampleInputPassword2" name="password2">
+                </div>
+                <input type="submit" class="btn btn-primary" name="submit" value="Sign Up" onclick="signup()";>
+            </form>
+            <div>
+                <button type="btn btn-primary btn-login" class="btn btn-primary"
+                    onclick="document.getElementById('id01').style.display='none'">Cancel</button>
+            </div>
+            <div>
+                {% for message in messages %}
+                {% if 'signup' in message.tags %}
+                    <script>
+                        document.getElementById('id01').style.display='block';
+                    </script>
+                <h2>{{message}}</h2>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+    {% block content %}
+
+    {% endblock %}
+    <footer class="footer" > 
+        <div class="container footer-wraper">
+            <div class="social-media-links">
+                <a href="https://www.facebook.com/profile.php?id=100006101223294" target="_blank"><i
+                        class="fab fa-facebook fa-3x"></i></a>
+                <a href="https://twitter.com/MeetPat82332235" target="_blank"><i class="fab fa-twitter fa-3x"></i></a>
+                <a href="https://www.instagram.com/patel_meet_1908/" target="_blank"><i
+                        class="fab fa-instagram fa-3x"></i></a>
+                <a href="https://www.linkedin.com/in/meet-patel-a048231a0/" target="_blank"><i
+                        class="fab fa-linkedin fa-3x"></i></a>
+            </div>
+            <p>
+                IPO-TRACKER &copy; 2021,All Right Reserved
+            </p>
+        </div>
+    </footer>
+    {% for message in messages%}
+    {{message}}
+    {% endfor %}
+    <script>
+        // Get the modal
+
+        var modal1 = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event1) {
+            if (event1.target == modal1) {
+                modal1.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

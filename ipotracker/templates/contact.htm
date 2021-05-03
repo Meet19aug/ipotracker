@@ -1,0 +1,31 @@
+{% extends 'base.htm' %}
+{% block content %}
+<section id="contact">
+    
+    <div class="contact-container container">
+        <div class="contact-image">
+            <img src="{{'static/img/logo.jpeg' }}" alt="">
+        </div>
+        <div class="form-container">
+            <form name="contact-form" action="/contact.htm" method="POST">
+                {% csrf_token %}
+                <h2>Contact Us</h2>
+                <div><label for="email3">Email Address</label>
+                    <input type="text" name="email" id="email3" pattern="[a-z0-9]+@[a-z0-9]+[.][a-z]+" placeholder="name@example.com"/><br>
+                </div>
+                <div><label for="query-select">query-select</label>
+                    <select id="query-select" name="qtype">
+                        <option>Trouble While Appling in IPO</option>
+                        <option>Upcomming IPO's</option>
+                        <option>Stock-Market Courses</option>
+                        <option>Others</option>
+                    </select><br><br>
+                </div>
+                <div><textarea name="qtext" id="textarea" cols="30" rows="10" placeholder="Type your message here"
+                        required/></textarea></div>
+                <div><button class="btn btn-primary" onclick="conatctValidate()">Submit</button></div>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

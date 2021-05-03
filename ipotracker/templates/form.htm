@@ -1,0 +1,62 @@
+{% extends 'base.htm' %}
+{% block content %}
+<form method="POST" action="/form.htm">
+    {% csrf_token %}
+    <div class="form-container ipo-form">
+        <h1>Apply For IPO</h1>
+        <hr>
+        <label for="query-select">Select Company For which you want to apply for IPO</label>
+        <select id="query-select" name="compname" required>
+            {% for curIpo in formList.0 %}
+                {% if curIpo.available %}
+                <option>{{curIpo.name}}</option>
+                {% endif %}
+                {% endfor %}
+        </select><br>
+        <label for="query-select">Select Inverstor Status &nbsp;</label>
+        <select id="query-select" name="investatus"required>
+            <option>IND Retail</option>
+            <option>IND HNI</option>
+        </select><br>
+        <h3>Bid Details: </h3>
+        <hr>
+        <label for="shareBid">Share Bid For</label>
+        <input type="number" id="sbf" placeholder="Enter quanitiy of share" name="quanofshare" required><br>
+        <label for="pricepershare">Price Per Share</label>
+        <input type="number" id="pps" placeholder="Enter price per share" name="pricpershare" required><br>
+
+        <h3>Applicant Details</h3>
+        <label for="pan">PAN Number</label>
+        <input type="text" id="pan" name="pan" placeholder="10 Digit Pan Number" pattern="[A-Z0-9]+" required><br>
+        <label for="name">Enter Full Name</label>
+        <input type="text" id="fname" name="applicantname" placeholder="first name + middle name + last name" pattern="[a-zA-Z]+[ ][a-zA-Z]+[ ][a-zA-Z]+" required><br>
+        <label for="birthdate">Birthdate</label>
+        <input type="date" name="date" id="birthdate" required>
+
+        <h3>Depository Detials</h3>
+        <label for="query-select">Depository &nbsp;</label>
+        <select id="query-select" name="depository" required>
+            <option>NSDL</option>
+            <option>CDSL</option>
+        </select><br>
+
+        <label for="dpid">Dp ID</label>
+        <input type="number" id="dpid" name="dpid" placeholder="Enter 16 digit DP ID." required><br>
+        <label for="dpname">DP NAME</label>
+        <input type="text" id="dpname" name="dpname" placeholder="HDFC bank / Yes Bank / VSC ext" pattern="[A-Za-z ]+" required><br>
+
+
+        <h3>Bank details</h3>
+        <label for="bankname">Bank NAME</label>
+        <input type="text" id="bname" name="bankname" placeholder="HDFC bank / Yes Bank / BOB / SBI" pattern="[A-Za-z ]+" required><br>
+        <label for="accountnum">Account Number</label>
+        <input type="number" id="accountnum" name="accountnum" placeholder="Enter Your Account Number" required><br>
+        <label for="query-select">Nationality&nbsp;</label>
+        <select id="query-select" name="nationality" required>
+            <option>Indian</option>
+            <option>Other</option>
+        </select><br>
+        <button type="submit" class="btn btn-primary" onclick="return validate_form();">Apply For IPO</button>
+    </div>
+</form>
+{% endblock %}

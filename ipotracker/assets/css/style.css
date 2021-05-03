@@ -1,0 +1,820 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+}
+/* ##################### Utility Classes ############################ */
+.container{
+    max-width: 1200px;
+    width: 90%;
+    margin: auto;
+}
+.btn{
+    display: inline-block;
+    padding: 1em 2.5em;
+    text-decoration: none;
+    border-radius: 50px;
+    cursor: pointer;
+    outline: none;
+    margin-top: 1em;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.btn-primary{
+    color: #fff;
+    background: #16a083;
+    transition:  background 0.3s ease-in-out;
+}
+.btn-primary:hover{
+    background: #117761;
+}
+a{
+    font-size: 1.6rem;
+    text-decoration: none;
+}
+tr:nth-child(2n){
+    color:black;
+    background-color: rgb(230, 230, 230);
+}
+.sm-heading{
+    font-size: 1.7rem;
+}
+
+/* ################################################# Nav-bar Styling ########################################3 */
+
+/* #################### For Desktop Mode ########################### */
+
+.navbar input[type='checkbox'],
+.navbar .hemburger-lines{
+    display: none;
+}
+
+.navbar{
+    box-shadow: 0px 5px 10px 0px #aaa;
+    position: fixed;
+    width: 100%;
+    background: #fff;
+    color: #000;
+    opacity: 0.85;
+    z-index: 999;
+}
+
+.navbar-container{
+    display: flex;
+    justify-content: space-between;
+    height: 6.4rem;
+    align-items: center; 
+}
+.menu-items{
+    order: 2;
+    display: flex;
+}
+.menu-items li{
+    list-style: none;
+    margin-left: 1.5rem;
+    font-size: 1.8rem;
+}
+.logo{ 
+    order: 1;
+    font-size: 3rem;
+    z-index: 999;
+}
+.navbar a{
+    color: #444;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3sec ease-in-out;
+}
+
+.navbar a:hover{
+    color: #117964;
+}
+
+
+/* ###############3 Showcase Area Styling ######################## */
+
+.showcase-area{
+    height: 100vh;
+    background-image: linear-gradient(rgba(240, 240, 240, 0.411),rgba(255,255,255,0.366)),url(./img/profit-loss.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+}
+.showcase-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 1.6rem;
+}
+
+.main-title{
+    text-transform: uppercase;
+    color: #000;
+}
+/* ############### About Us Styling ###################3 */
+#about{
+    padding: 50px 0px;
+    background: #f5f5f7;
+}
+.about-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#about h2{
+    font-size: 3.2rem;
+}
+#about p{
+    font-size: 1.6rem;
+    color: #555;
+}
+#about .small{
+    font-size: 1.6rem;
+    color: #666;
+    font-weight: 600;
+}
+.about-img{
+    flex: 1 1 400px;
+    padding: 30px;
+    height: 30%;
+    width: 30%;
+    transform: translateX(-150%);
+    animation: about-img-animation 1s ease-in-out forwards;
+}
+@keyframes about-img-animation{
+    100%{
+        transform: translate(0);
+    }
+}
+.about-text{
+    flex: 1 1 400px;
+    padding: 30px;
+    margin: auto;
+    transform: translateX(150%);
+    animation: about-text-animation 1s ease-in-out forwards;  
+}
+@keyframes about-text-animation{
+    100%{
+        transform: translate(0);
+    }
+}
+.about-img img{
+    display: block;
+    height: 400px;
+    max-width: 100%;
+    margin: auto;
+    object-fit: cover;
+    object-position: right;
+}
+
+/* ########################## Type of Ipo Styling #######################33 */
+#ipo{
+    padding: 5rem 0 10rem 0;
+}
+
+#ipo h2{
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 400;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    color: #555;
+}
+
+.ipo-container{
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.ipo-container img{
+    display: block;
+    width: 35rem;
+    height: 40rem;
+    margin: auto;
+    max-height: 300px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.img-container{
+    margin: 0 1rem;
+    position: relative;
+}
+
+.img-content{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /* opacity: 0; */
+    z-index: 2;
+    text-align: center;
+    transition: all 0.3s ease-in-out 0.1s;
+}
+
+.img-content h3{
+    color: #fff;
+    font-size: 3rem;
+}
+
+.img-container a{
+    font-size: 1.2rem;
+}
+.img-container::after{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.871);
+    opacity: 1;
+    z-index: 1;
+    transform: scaleY(0);
+    transform-origin: 100% 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+.img-container:hover::after{
+    opacity: 1;
+    transform: scaleY(1);
+}
+.img-container:hover .img-content{
+    opacity: 1;
+    top: 40%;
+}
+
+/* ################# ipo-Item-Menu Css ##################### */
+.ipo-menu-heading{
+    padding-top: 7rem;
+    font-size: 4rem;
+    text-align: center;
+    font-weight: 400;
+    color: #666;
+}
+
+.ipo-menu-container{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px 0 30px 0;
+}
+.ipo-menu-container img{
+    display: block;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 15% 15%;
+}
+.ipo-menu-item{
+    display: flex;
+    flex: 1 1 600px;
+    justify-content: space-evenly;
+    margin-bottom: 3rem;
+}
+.ipo-description{
+    margin: auto 1.5rem;
+}
+.ipo-title{
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: #444;
+}
+.ipo-description p{
+    font-size: 1.4rem;
+    color: #555;
+    font-weight: 500;
+}
+.ipo-price{
+    color: #117964;
+    font-weight: 700;
+}
+
+/* ########################### Testimonail Styling ############################# */
+#testimonials{
+    padding: 5rem 0rem;
+    background: rgb(243,243,243);
+}
+.testimonial-title{
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 400;
+    color: #555;
+}
+.testimonial-container{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.6rem;
+    padding: 1rem;
+}
+.testimonial-container .checked{
+    color: #ff9529;
+}
+.testimonial-box .testimonial-text{
+    margin: 1rem 0;
+    color: #444;
+
+}
+.testimonial-box{
+    text-align: center;
+    padding: 1rem;
+}
+.customer-photo img{
+    display: block;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    margin: auto;
+}
+
+/* ########################## Contect-us styling############## */
+#contact{
+    padding: 9rem 0;
+    background: rgb(226,226,226);
+}
+.contact-container{
+    display: flex;
+    background: #fff;
+}
+.contact-image{
+    width: 50%; 
+}
+.contact-image img{
+    display: block;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+}
+.form-container{
+    padding: 1rem;
+    width: 50%;
+    margin: auto;
+}
+.form-container input{
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    padding: 1rem 0;
+    box-shadow: none;
+    outline: none;
+    margin-bottom: 1rem;
+    color: #444;
+    font-weight: 500;
+}
+.form-container textarea{
+    display: block;
+    width: 100%;
+    border: 2px solid #000;
+    border-bottom: 2px solid #ddd;
+    padding: 1rem 0;
+}
+.form-container h2{
+    font-size: 3rem;
+    font-weight: 400;
+    color: #444;
+    margin-bottom: 1rem;
+}
+.form-container h1{
+    font-size: 4rem;
+    font-weight: 500;
+    color: #253238;
+}
+.form-container h3{
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #333;
+    background-color: #aaa;
+}
+.form-container select{
+    width: 50%;
+    height: 3rem;
+    margin-bottom: 1rem;
+}
+.form-container label{
+    font-size: 2rem;
+    font-weight: 400;
+}
+.form-container hr{
+    margin: 1rem 0 2rem 0;
+}
+.form-container a{
+    font-size: 1.2rem;
+}
+.ipo-form{
+    padding-top: 7rem;
+}
+/* ################# table css ############################### */
+.mini-container {
+    width: 900px;
+    margin: auto;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+#ipo .table-container {
+    max-width: 100%;
+    overflow: auto;
+    -webkit-text-size-adjust: 100%;
+    font-family: "Inter", serif;
+    font-size: 16px;
+    line-height: 1.7;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    color: #424242;
+    max-width: 100%;
+    overflow: auto;
+}
+#ipo .closed a{
+    color: black;
+}
+#ipo .current-ipo a{
+    color: peterriver;
+}
+.current-ipo{
+    margin: 4rem 0;
+}
+.closed-ipo{
+    margin: 4rem 0;
+}
+table{
+    width: 100%;
+}
+th,td{
+    text-align: left;
+    padding: 0.5em;
+}
+th{
+    background-color: rgb(199, 198, 198);
+    font-size: 1.7rem;
+    color: #000
+}
+
+
+/* ################# table css ############################### */
+.mini-container {
+    width: 900px;
+    margin: auto;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+#ipo .table-container {
+    max-width: 100%;
+    overflow: auto;
+    -webkit-text-size-adjust: 100%;
+    font-family: "Inter", serif;
+    font-size: 16px;
+    line-height: 1.7;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    color: #424242;
+    max-width: 100%;
+    overflow: auto;
+}
+#ipo .closed a{
+    color: black;
+}
+#ipo .current-ipo a{
+    color: peterriver;
+}
+.current-ipo{
+    margin: 5rem 0;
+}
+.closed-ipo{
+    margin: 5rem 0;
+}
+table{
+    width: 100%;
+}
+th,td{
+    text-align: left;
+    padding: 0.5em;
+}
+th{
+    background-color: rgb(199, 198, 198);
+    font-size: 1.7rem;
+    color: #000
+}
+/* glassmorphisum */
+.card{
+    width: 400px;
+    height: auto;
+    padding: 2rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, .7);
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
+} 
+.card-title{
+    margin-top: 0;
+    margin-bottom: 2rem;
+    font-size: 4rem;
+}
+.shape{
+    position: relative  ;
+    width: 250px;
+    top: 9rem;
+    left: .5rem;
+}
+/* login modal */
+
+/* Full-width input fields */
+.login-form{
+    background-color: #fff;
+    width: 50rem;
+    position: relative;
+    border: 0.5rem solid #253238;
+    display: block;
+    margin: 0 auto;
+    padding: 1rem;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    box-shadow:0px 5px 5px 0px #253238;
+    z-index: 7;
+}
+input[type=email], input[type=password] {
+  width: 100%;
+  display: inline-block;
+  border: 0.5rem solid #424242;
+  box-sizing: border-box;
+  height: 4rem;
+  font-size: 1.8rem;
+}
+
+/* Set a style for all buttons */
+
+
+/* Extra styles for the cancel button */
+
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+}
+/* 3 ways to do payment */
+
+/* ###################### Footer ################## */
+.footer{
+    background-color: #253238;
+    color: #f4f4f4;
+    padding: 0.5rem;
+    text-align: center;
+    margin: 0;
+}
+.social-media-links i{
+    margin: 1.5rem;
+    color: #16a083;
+    padding: 0;
+}
+
+/* ################### Media Query ######################## */
+#special{
+    position: absolute;
+    bottom:0;
+    width:100%;
+}
+@media (max-width: 1024px){
+    #special{
+        margin-top: 10em;
+        position: relative;
+    }
+}
+@media(max-width: 768px){
+    .navbar{
+        opacity: 0.95;
+    }
+    .navbar input[type='checkbox'],
+    .navbar .hamburger-lines{
+        display: block;/* none->block*/
+    } 
+    .navbar-container{
+        display: block;/* flex->block*/
+        position: relative;
+        height: 64px;
+    }
+    .navbar-container input[type="checkbox"]{
+        position: absolute;
+        display: block;
+        height: 32px;
+        width: 40px;
+        top: 20px;
+        left: 20px;
+        z-index: 5;
+        opacity: 0;
+    }
+    .navbar-container .hemburger-lines{
+        display: block;
+        height: 32px;
+        width: 40px;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+    }
+    .navbar-container .hemburger-lines .line{
+        display: block;
+        height: 4px;
+        width: 100%;
+        border-radius: 10px;
+        background: #333;
+    }
+    .navbar-container .hemburger-lines .line1{
+        transform-origin: 0% 0%;
+        transition: transform 0.4s ease-in-out;
+    }
+    .navbar-container .hemburger-lines .line2{
+        transition: transform 0.4s ease-in-out;
+    }
+    .navbar-container .hemburger-lines .line3{
+        transform-origin: 0% 100%;
+        transition: transform 0.4s ease-in-out;
+    }
+    .navbar .menu-items{
+        padding: 100px;
+        background: #fff;
+        height: 100vh;
+        width: 300px;
+        transform: translateX(-150%);
+        flex-direction: column;
+        margin-left: -50px;
+        padding-left: 50px;
+        transition: transform 0.5s ease-in-out;
+        box-shadow: 5px 0 10px 0 #aaa;
+    }
+    .navbar .menu-items li{
+        margin-bottom: 3rem;
+        font-size: 2rem;
+        font-weight: 500;
+    }
+    .logo{
+        position: absolute;
+        top: 20px;
+        right: 15px;
+        font-size: 3rem;
+    }
+    .navbar input[type='checkbox']:checked ~ .menu-items{
+        transform: translateX(0);
+    }
+    .navbar input[type='checkbox']:checked ~ .hemburger-lines .line1{
+        transform: rotate(45deg);
+    }
+    .navbar input[type='checkbox']:checked ~ .hemburger-lines .line2{
+        transform: scaleY(0);
+    }
+    .navbar input[type='checkbox']:checked ~ .hemburger-lines .line3{
+        transform: rotate(-45deg);
+    }
+    /* ############# ipo Cetegory ################## */
+    .ipo-container{
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .ipo-type:not(:last-child){
+        margin-bottom: 3rem;
+    }
+    .ipo-type{
+        box-shadow: 5px 5px 10px 0 #aaa;
+    }
+    .img-container{
+        margin: 0;
+    }
+}
+
+/* ######################  Small Scale ############## */
+@media(max-width: 500px){
+    html{
+        font-size: 50%;
+    }
+    .testimonial-container{
+        flex-direction: column;
+        text-align: center;
+    }
+    .ipo-menu-item{
+        flex-direction: column;
+        text-align: center;
+    }
+    .ipo-menu-container img{
+        margin:auto;
+    }
+    .form-container{
+        width: 90%;
+    }
+    .contact-container{
+        display: flex;
+        flex-direction: column;
+    }
+    .contact-image{
+        width: 90%;
+        margin: 3rem auto;
+    }
+}
+
+/* ################# Landscape Mode ################# */
+@media (orientation: landscape) and (max-height: 500px){
+    .showcase-area{
+        height: 50vmax;
+    }
+    .navbar .menu-items{
+        overflow-y: scroll;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

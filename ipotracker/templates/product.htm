@@ -1,0 +1,23 @@
+{% extends 'base.htm' %}
+{% block content %}
+    <section id="ipo-menu">
+        <h2 class="ipo-menu-heading">
+            Courses Which Help's You to grow more!!!
+        </h2>
+        <div class="ipo-menu-container container">
+        {% for stockcourse in stockcourses%}
+            <div class="ipo-menu-item">
+                <div class="ipo-image">
+                    <img src="{{stockcourse.img.url}}" alt="CourseImage">
+                </div>
+                <div class="ipo-description">
+                    <h2 class="ipo-title">{{stockcourse.name}}</h2>
+                    <p>{{stockcourse.intro}}</p>
+                    <p class="ipo-price">Price: &#8377;: {{stockcourse.price}}</p>
+                    <a href="{{stockcourse.link}}" target="_blank"><button class="btn btn-secondary btn-primary">Go To Course</button></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

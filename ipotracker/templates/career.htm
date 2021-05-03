@@ -1,0 +1,21 @@
+{% extends 'base.htm' %}
+{% block content %}
+
+<div class="card-wrapper container">
+{% for careerinfo in careerinfos%}
+    {% if careerinfo.available %}
+    <div class="glassmorphisum container">
+        <img class="shape" src="{{careerinfo.img.url}}" alt="">
+        <div class="card">
+            <h3 class="card-title">{{careerinfo.title}}</h3>
+            <h2>{{careerinfo.intro}}</h2>
+            <a href="{{careerinfo.link}}" target="_blank">Apply Here</a>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+
+
+{% endblock %}
