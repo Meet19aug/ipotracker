@@ -111,29 +111,29 @@
                     <label for="fname">
                         <h2>First Name</h2>
                     </label><br>
-                    <input type='text' name='first_name' id="fname"><Br>
+                    <input type='text' name='first_name' id="fname" required><Br>
                     <label for="lname">
                         <h2>Last Name</h2>
                     </label><br>
-                    <input type='text' name='last_name' id="lname"><Br>
+                    <input type='text' name='last_name' id="lname" required><Br>
                     <label for="username">
                         <h2>Username</h2>
                     </label><br>
 
-                    <input type='text' name='username' id="username"><Br>
+                    <input type='text' name='username' id="username" required><Br>
                     <label for="exampleInputEmail1">
                         <h2>Email Address</h2>
                     </label><br>
-                    <input type="email" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
+                    <input type="email" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" required>
                     <br>
                     <small id="emailHelp" class="sm-heading">We'll never share your email with anyone
                         else.</small>
                 </div><br>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">
+                    <label for="exampleInputPassword1" >
                         <h2>Password</h2>
                     </label><br>
-                    <input type="password" id="exampleInputPassword1" name="password1">
+                    <input type="password" id="exampleInputPassword1" name="password1" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword2">
@@ -145,7 +145,7 @@
             </form>
             <div>
                 <button type="btn btn-primary btn-login" class="btn btn-primary"
-                    onclick="document.getElementById('id01').style.display='none'">Cancel</button>
+                    onclick="document.getElementById('id01').style.display='none'" onclick="signup();">Cancel</button>
             </div>
             <div>
                 {% for message in messages %}

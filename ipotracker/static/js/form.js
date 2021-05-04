@@ -21,7 +21,6 @@ function login() {
 }
 
 function signup() {
-
     var input = document.getElementById('exampleInputEmai1');
     input.oninvalid = function (event) {
         event.target.setCustomValidity('Email Address cannot be empty.');

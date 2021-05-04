@@ -21,7 +21,7 @@ def register(request):
                 messages.info(request,'Email Already exists: ',extra_tags="signup")
                 return redirect('/')
             else:
-                user = User.objects.create_user(first_name=first_name, last_name=last_name, username=username, email=email, password=password)
+                user = User.objects.create_user(first_name=first_name, last_name=last_name, username=username, email=email, password=password1)
                 user.save()
         return redirect('/')
     else: 
