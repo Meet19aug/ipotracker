@@ -1,12 +1,12 @@
 {% extends 'base.htm' %}
 {% block content %}
-<form method="POST" action="/form.htm">
+<form method="POST" action="/form.htm" name="ipoform">
     {% csrf_token %}
     <div class="form-container ipo-form">
         <h1>Apply For IPO</h1>
         <hr>
         <label for="query-select">Select Company For which you want to apply for IPO</label>
-        <select id="query-select" name="compname" required>
+        <select id="query-select" name="compname">
             {% for curIpo in formList.0 %}
                 {% if curIpo.available %}
                 <option>{{curIpo.name}}</option>
@@ -14,7 +14,7 @@
                 {% endfor %}
         </select><br>
         <label for="query-select">Select Inverstor Status &nbsp;</label>
-        <select id="query-select" name="investatus"required>
+        <select id="query-select" name="investatus">
             <option>IND Retail</option>
             <option>IND HNI</option>
         </select><br>

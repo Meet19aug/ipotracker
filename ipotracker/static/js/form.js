@@ -29,7 +29,7 @@ function signup() {
         event.target.setCustomValidity("");
     }
 
-    var input1 = document.getElementById('exampleInputPasswod1');
+    var input1 = document.getElementById('exampleInputPassword1');
     input1.oninvalid = function (event) {
         event.target.setCustomValidity('Password cannot be empty.');
     }
@@ -44,13 +44,6 @@ function signup() {
     input2.oninput = function (event) {
         event.target.setCustomValidity("");
     }
-
-    if (input2.value != input1.value) {
-        alert('Passwords do not match');
-        return false;
-        document.getElementById('exampleInputPasswod1').focus();
-    }
-
     var regPass = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
     if (input1.value.match(regPass) == false) {
         alert("Please Enter Password with minimum One uppercase, One Lowercase and One Special Character with minimum length of 6");
@@ -60,6 +53,14 @@ function signup() {
 
         return false;
     }
+
+    if (input2.value != input1.value) {
+        alert('Passwords do not match');
+        return false;
+        document.getElementById('exampleInputPasswod1').focus();
+    }
+
+    
 }
 
 function conatctValidate(){
