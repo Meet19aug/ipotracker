@@ -102,8 +102,8 @@ tr:nth-child(2n){
 }
 
 
-/* ###############3 Showcase Area Styling ######################## */
-
+/* ###############3  About us page Showcase Area Styling ######################## */
+/* testimonial  */
 .showcase-area{
     height: 100vh;
     background-image: linear-gradient(rgba(240, 240, 240, 0.411),rgba(255,255,255,0.366)),url("/static/img/profit-loss.jpg");
@@ -124,7 +124,7 @@ tr:nth-child(2n){
     text-transform: uppercase;
     color: #000;
 }
-/* ############### About Us Styling ###################3 */
+/* ############### About Us Styling Index.html ###################3 */
 #about{
     padding: 50px 0px;
     background: #f5f5f7;
@@ -424,7 +424,7 @@ tr:nth-child(2n){
 .ipo-form{
     padding-top: 7rem;
 }
-/* ################# table css ############################### */
+/* ################# table css for index page ############################### */
 .mini-container {
     width: 900px;
     margin: auto;
@@ -514,7 +514,7 @@ th{
     font-size: 1.7rem;
     color: #000
 }
-/* glassmorphisum */
+/* glassmorphisum  carrer.html page*/
 .card-wrapper{
     width: 100%;
     padding-top: 3rem;
@@ -569,12 +569,6 @@ input[type=email], input[type=password], input[type=text] {
   height: 4rem;
   font-size: 1.8rem;
 }
-
-/* Set a style for all buttons */
-
-
-/* Extra styles for the cancel button */
-
 
 /* Center the image and position the close button */
 .imgcontainer {
@@ -642,7 +636,6 @@ span.psw {
      float: none;
   }
 }
-/* 3 ways to do payment */
 
 /* ###################### Footer ################## */
 .footer{

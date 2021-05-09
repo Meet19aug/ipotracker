@@ -1,15 +1,15 @@
 function login() {
 
-    var input = document.getElementById('exampleInputEmail1');
+    var input = document.getElementById('username');
     input.oninvalid = function (event) {
-        event.target.setCustomValidity('Email Address cannot be empty.');
+        event.target.setCustomValidity('Username cannot be empty.');
     }
 
     input.oninput = function (event) {
         event.target.setCustomValidity("");
     }
 
-    var input1 = document.getElementById('exampleInputPassword1');
+    var input1 = document.getElementById('password');
     input1.oninvalid = function (event) {
         event.target.setCustomValidity('Password cannot be empty.');
     }
@@ -45,7 +45,7 @@ function signup() {
         event.target.setCustomValidity("");
     }
     var regPass = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
-    if (input1.value.match(regPass) == false) {
+    if (regPass.test(input1.value) == false) {
         alert("Please Enter Password with minimum One uppercase, One Lowercase and One Special Character with minimum length of 6");
         document.getElementById('exampleInputPassword2').value = "";
         document.getElementById('exampleInputPasswod1').value = "";
@@ -57,6 +57,9 @@ function signup() {
         alert('Passwords do not match');
         return false;
         document.getElementById('exampleInputPasswod1').focus();
+    }
+    if(input2.value != input1.value){
+        alert("press sign up to register..");
     }
 }
 
